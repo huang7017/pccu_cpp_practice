@@ -21,9 +21,19 @@ void verticalbar(int name[],int size){
 	for(int i = 0;i < size;i++){
 		total[name[i]/10]++;	
 	}
+	int max = 0;
 	for(int i = 0;i < 11;i++){
-		for(int j = 0;j < total[i];j++){
-			cout << "*";
+		if(total[i] > max)
+			max = total[i];
+	}
+	for(int i = max;i > 0;i--){
+		for(int j = 0;j < 11;j++){
+			if(total[j] >= i){
+				cout<<"*";
+			}
+			else{
+				cout<<" ";
+			}
 		}
 		cout<<endl;
 	}
